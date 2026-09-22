@@ -1,0 +1,196 @@
+---
+import ToggleGrid from "./ToggleGrid.astro";
+---
+
+<nav
+  class="bg-Background-light/30 backdrop-blur-md dark:bg-Forenground-dark/20 dark:backdrop-blur-md fixed w-full z-20 top-0 start-0 border-b border-Neutral-300 dark:border-Neutral-700-dark"
+>
+  <div
+    class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-2 md:p-3 xl:py-0 xl:text-sm"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse -my-2">
+      <div class="flex items-center gap-2 py-4">
+        <div class="w-8 h-8 rounded-lg bg-Orange-vibrant dark:bg-Orange-vibrant-dark flex items-center justify-center">
+          <span class="text-white font-black text-sm">B</span>
+        </div>
+        <span class="text-xl font-black text-Text-dark dark:text-white tracking-tight">
+          BU<span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">VA</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop: Theme Toggle & Hamburger -->
+    <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <!-- Theme Toggle Button -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-Background-dark focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+        aria-label="Toggle dark mode"
+      >
+        <svg
+          id="theme-toggle-dark-icon"
+          class="hidden w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg
+          id="theme-toggle-light-icon"
+          class="hidden w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Hamburger -->
+      <button
+        data-collapse-toggle="navbar-default"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-Text-dark dark:text-Text-light rounded-lg md:hidden hover:bg-Neutral-100 dark:hover:bg-Neutral-600 focus:outline-none focus:ring-2 focus:ring-Orange-vibrant cursor-pointer"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <ToggleGrid size={20} strokeWidth={1.5} class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      id="navbar-default"
+    >
+      <ul
+        class="flex flex-col bg-transparent p-2 mt-2 font-medium border rounded-lg border-default md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            href="/"
+            class="block px-3 py-2 text-heading rounded bg-Orange-vibrant text-white md:bg-transparent md:text-heading md:hover:text-Orange-vibrant md:p-0"
+            aria-current="page">Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#projects"
+            class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script is:inline>
+    function initializeNavbar() {
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+      const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon?.classList.remove("hidden");
+        themeToggleDarkIcon?.classList.add("hidden");
+      } else {
+        themeToggleDarkIcon?.classList.remove("hidden");
+        themeToggleLightIcon?.classList.add("hidden");
+      }
+
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      if (themeToggleBtn) {
+        const oldListener = (themeToggleBtn as any)._clickHandler;
+        if (oldListener) themeToggleBtn.removeEventListener("click", oldListener);
+
+        const clickHandler = function () {
+          themeToggleDarkIcon?.classList.toggle("hidden");
+          themeToggleLightIcon?.classList.toggle("hidden");
+          if (localStorage.getItem("color-theme")) {
+            if (localStorage.getItem("color-theme") === "light") {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            }
+          } else {
+            if (document.documentElement.classList.contains("dark")) {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            }
+          }
+        };
+
+        (themeToggleBtn as any)._clickHandler = clickHandler;
+        themeToggleBtn.addEventListener("click", clickHandler);
+      }
+
+      const hamburger = document.querySelector('[data-collapse-toggle="navbar-default"]');
+      const navbarMenu = document.getElementById("navbar-default");
+
+      if (hamburger && navbarMenu) {
+        const oldHamburgerListener = (hamburger as any)._clickHandler;
+        if (oldHamburgerListener) hamburger.removeEventListener("click", oldHamburgerListener);
+
+        const hamburgerHandler = function () {
+          navbarMenu.classList.toggle("hidden");
+          const isExpanded = !navbarMenu.classList.contains("hidden");
+          hamburger.setAttribute("aria-expanded", isExpanded.toString());
+        };
+
+        (hamburger as any)._clickHandler = hamburgerHandler;
+        hamburger.addEventListener("click", hamburgerHandler);
+
+        navbarMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.stopPropagation();
+            navbarMenu.classList.add("hidden");
+            hamburger.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+    }
+
+    initializeNavbar();
+    document.addEventListener("astro:page-load", () => { initializeNavbar(); });
+  </script>
+</nav>

@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import MarqueeTecnologies from "../components/MarqueeTecnologies.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="BUVA | Full-Stack Development Studio"
+  description="BUVA builds scalable apps, AI-powered platforms and end-to-end digital solutions. Explore our portfolio of real-world shipped products."
+  class="w-full bg-Background-light dark:bg-Background-dark"
+>
+  <Header />
+  <Hero />
+  <MarqueeTecnologies />
+  <main class="min-h-screen flex flex-col items-center">
+    <AboutMe />
+    <Projects />
+  </main>
+  <Contact />
+  <Footer />
+</Layout>

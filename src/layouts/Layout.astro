@@ -1,0 +1,89 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  class?: string;
+  title?: string;
+  description?: string;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- SEO -->
+    <meta
+      name="description"
+      content={Astro.props.description ?? "BUVA — Full-Stack development studio. We build scalable apps, platforms and AI-powered solutions. Explore our portfolio of real-world projects."}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://buva.dev/" />
+    <meta property="og:title" content={Astro.props.title ?? "BUVA | Full-Stack Development Studio"} />
+    <meta
+      property="og:description"
+      content="Scalable apps, AI-driven platforms and end-to-end digital solutions."
+    />
+    <meta property="og:image" content="/og-logo.png" />
+    <ClientRouter />
+    <title>{Astro.props.title ?? "BUVA | Full-Stack Development Studio"}</title>
+  </head>
+  <body class={Astro.props.class}>
+    <slot />
+
+    <!-- Intersection Observer for reveal animations -->
+    <script is:inline>
+      let observerInstance = null;
+
+      function initializeObserver() {
+        if (observerInstance) {
+          document.querySelectorAll(".item-revelar").forEach((el) => {
+            observerInstance.unobserve(el);
+          });
+        }
+
+        const observerConfig = { threshold: 0.1 };
+        observerInstance = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        }, observerConfig);
+
+        document.querySelectorAll(".item-revelar").forEach((el) => {
+          observerInstance.observe(el);
+        });
+      }
+
+      initializeObserver();
+
+      document.addEventListener("astro:page-load", () => {
+        initializeObserver();
+      });
+    </script>
+
+    <!-- Flowbite -->
+    <script>
+      import * as flowbite from "flowbite";
+      flowbite.initFlowbite();
+      document.addEventListener("astro:page-load", () => {
+        flowbite.initFlowbite();
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+
+@source "../../node_modules/flowbite";
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/700.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-geist: "Geist", sans-serif;
+}
+
+body {
+  font-family: var(--font-geist);
+}
+
+@theme {
+  /* --- COLORS BASE (Light Mode) --- */
+  --color-Background-light: hsl(240 100% 98.0392%);
+  --color-Text-dark: hsl(227, 32%, 31%);
+  --color-Border: hsl(195 4.4444% 82.3529%);
+
+  /* --- SURFACES --- */
+  --color-card-surface: hsl(0 0% 100%);
+  --color-card-text: hsl(227, 32%, 31%);
+
+  /* --- BRAND & ACTIONS (Indigo/Violet for BUVA) --- */
+  --color-Orange-vibrant: hsl(245, 85%, 58%);
+  --color-Orange-vibrant-text: hsl(0, 0%, 100%);
+  --color-Cyan-accent: hsl(195, 100%, 50%);
+  --color-Cyan-accent-text: hsl(227, 32%, 31%);
+
+  /* --- UTILITIES --- */
+  --color-Neutral-100: hsl(210, 17%, 94%);
+  --color-Neutral-300: hsl(0, 0%, 82%);
+  --color-Error: hsl(353, 100%, 64%);
+
+  /* --- TYPOGRAPHY --- */
+  --font-sans: Geist, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* --- COLORS BASE (Dark Mode) --- */
+  --color-Background-dark: hsl(240 26.8293% 8.0392%);
+  --color-Text-light: hsl(0, 0%, 88%);
+
+  /* --- SURFACES DARK --- */
+  --color-Forenground-dark: hsl(245 52.7273% 10.7843%);
+  --color-Text-Muted-dark: hsl(245 32.7103% 20.9804%);
+  --color-card-surface-dark: hsl(245, 45%, 15%);
+  --color-card-text-dark: hsl(0, 0%, 88%);
+  --color-Border-dark: hsl(245 24.6753% 30.1961%);
+
+  /* --- BRAND DARK --- */
+  --color-Orange-vibrant-dark: hsl(252, 100%, 72%);
+  --color-Orange-vibrant-text-dark: hsl(245, 55%, 11%);
+  --color-Cyan-accent-dark: hsl(185, 100%, 61%);
+  --color-Cyan-accent-text-dark: hsl(245, 55%, 11%);
+
+  /* --- UTILITIES DARK --- */
+  --color-Neutral-700-dark: hsl(245, 32%, 27%);
+  --color-Neutral-600-dark: hsl(245, 30%, 38%);
+  --color-Error-dark: hsl(353, 100%, 64%);
+
+  /* Text sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Custom animations */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Reveal animation elements */
+.item-revelar {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.item-revelar.animate-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.item-revelar:nth-child(2).animate-in {
+  animation-delay: 0.2s;
+}
+
+.item-revelar:nth-child(3).animate-in {
+  animation-delay: 0.4s;
+}
+
+.item-revelar:nth-child(4).animate-in {
+  animation-delay: 0.6s;
+}
+
+.item-revelar:nth-child(5).animate-in {
+  animation-delay: 0.8s;
+}
+
+.item-revelar:nth-child(6).animate-in {
+  animation-delay: 1s;
+}
+
+/* Prose styles for markdown content */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--color-Text-dark);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4 {
+  color: var(--color-Text-light);
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.prose ul, .prose ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.prose a {
+  color: var(--color-Orange-vibrant);
+  text-decoration: underline;
+}
+
+.prose code {
+  background: var(--color-Neutral-100);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.dark .prose code {
+  background: var(--color-Forenground-dark);
+}
+
+.prose pre {
+  background: var(--color-Forenground-dark);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}

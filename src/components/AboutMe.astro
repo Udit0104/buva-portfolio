@@ -1,0 +1,97 @@
+---
+import CodeIcon from "./CodeIcon.astro";
+import UserIcon from "./UserIcon.astro";
+import ProgressBar from "./ProgressBar.astro";
+import Badge from "./badge.astro";
+---
+
+<section
+  id="about"
+  class="about-me py-20 text-Foreground-dark dark:text-Background-light"
+>
+  <h2 class="text-center text-3xl font-bold pb-8 dark:text-white">About Us</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-6xl mx-auto px-4">
+
+    <!-- Left card -->
+    <div
+      class="item-revelar bg-neutral-primary-soft text-body block w-full p-6 border border-default rounded-base shadow-xs"
+    >
+      <h3
+        class="mb-3 text-2xl font-bold text-Forenground-dark dark:text-Background-light tracking-tight leading-8"
+      >
+        <UserIcon
+          size={32}
+          class="inline-block mr-2 mb-1 text-Orange-vibrant dark:text-Orange-vibrant-dark"
+        />
+        Who We Are
+      </h3>
+      <p class="mb-4 text-body leading-relaxed text-lg">
+        BUVA is a full-stack development studio that turns ambitious ideas into
+        production-ready digital products. We cover the entire stack — from
+        server architecture and APIs to polished, accessible front-ends.
+      </p>
+      <p class="mb-4 text-body leading-relaxed text-lg">
+        Our work spans consumer apps, enterprise platforms, and AI-powered tools.
+        We've shipped products for ex-Wipro directors, launched food-delivery
+        platforms, and earned a 2nd-place finish at Smart India Hackathon with an
+        ML-driven agricultural solution.
+      </p>
+
+      <div class="contenedor-revelar mt-6 grid grid-cols-3 gap-3 text-center">
+        <div
+          class="item-revelar bg-Background-light dark:bg-Forenground-dark rounded-base shadow-xs p-3"
+        >
+          <div class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark">5+</div>
+          <div class="text-sm text-body">Products Shipped</div>
+        </div>
+        <div
+          class="item-revelar bg-Background-light dark:bg-Forenground-dark rounded-base shadow-xs p-3"
+        >
+          <div class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark">2nd</div>
+          <div class="text-sm text-body">SIH Placement</div>
+        </div>
+        <div
+          class="item-revelar bg-Background-light dark:bg-Forenground-dark rounded-base shadow-xs p-3"
+        >
+          <div class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark">∞</div>
+          <div class="text-sm text-body">Commits</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right card -->
+    <div
+      class="item-revelar bg-neutral-primary-soft py-6 block w-full p-6 border border-default rounded-base shadow-xs"
+    >
+      <h3 class="mb-3 text-2xl font-bold tracking-tight leading-8 dark:text-white">
+        <CodeIcon
+          size={32}
+          class="inline-block mr-2 mb-1 text-Orange-vibrant dark:text-Orange-vibrant-dark"
+        />
+        Our Toolbox
+      </h3>
+      <div class="space-y-4">
+        <ProgressBar label="Backend & APIs" percentage={92} />
+        <ProgressBar label="Frontend & UI/UX" percentage={88} />
+        <ProgressBar label="AI / ML Models" percentage={78} />
+        <ProgressBar label="DevOps & Cloud" percentage={72} />
+      </div>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <Badge label="Node.js" />
+        <Badge label="React" />
+        <Badge label="Python" />
+        <Badge label="TypeScript" />
+        <Badge label="MongoDB" />
+        <Badge label="PostgreSQL" />
+        <Badge label="Docker" />
+        <Badge label="TensorFlow" />
+        <Badge label="AWS" />
+        <Badge label="Next.js" />
+        <Badge label="Git" />
+        <Badge label="Tailwind CSS" />
+      </div>
+    </div>
+
+  </div>
+</section>

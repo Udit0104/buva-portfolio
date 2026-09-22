@@ -1,0 +1,149 @@
+---
+import CodeIcon from "./CodeIcon.astro";
+import MessageIcon from "./MessageIcon.astro";
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center pt-32 pb-20 bg-Background-light dark:bg-Background-dark overflow-hidden"
+>
+  <!-- Background Pattern -->
+  <div
+    class="absolute inset-0 bg-[url('/pattern-code.png')] bg-repeat opacity-[0.04] pointer-events-none"
+  ></div>
+
+  <!-- Gradient Overlays -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-Orange-vibrant/20 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-Cyan-accent/20 blur-3xl rounded-full"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-Orange-vibrant/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="container contenedor-revelar mx-auto px-6 md:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Text Content -->
+        <div class="lg:col-span-7 space-y-8">
+
+          <!-- Terminal-style badge -->
+          <div class="item-revelar">
+            <div
+              class="inline-flex items-center gap-3 px-4 py-2 bg-Background-light dark:bg-Forenground-dark border border-Border dark:border-Border-dark rounded-lg font-mono text-sm"
+            >
+              <span class="text-Cyan-accent dark:text-Cyan-accent-dark">$</span>
+              <span class="text-body dark:text-body-light">status --availability</span>
+              <span class="text-green-600 dark:text-green-400 flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                open to work
+              </span>
+            </div>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="item-revelar space-y-6">
+            <div class="space-y-2">
+              <div class="flex items-baseline gap-2 flex-wrap">
+                <span class="text-Cyan-accent dark:text-Cyan-accent-dark font-mono text-lg">const</span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-Text-dark dark:text-white tracking-tight">
+                  BUVA
+                </h1>
+                <span class="text-body dark:text-body-light font-mono text-lg">=</span>
+              </div>
+            </div>
+
+            <!-- Role/Expertise -->
+            <div class="pl-8 border-l-2 border-Orange-vibrant dark:border-Orange-vibrant-dark">
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 font-mono text-body dark:text-body-light">
+                  <span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">role:</span>
+                  <span class="text-Text-dark dark:text-Text-light font-semibold text-xl md:text-2xl">"Full-Stack Development Studio"</span>
+                </div>
+                <div class="flex items-center gap-2 font-mono text-body dark:text-body-light">
+                  <span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">focus:</span>
+                  <span class="text-Text-dark dark:text-Text-light">"Scalable Apps &amp; AI Solutions"</span>
+                </div>
+                <div class="flex items-start gap-2 font-mono text-body dark:text-body-light">
+                  <span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">stack:</span>
+                  <span class="text-Text-dark dark:text-Text-light">['React','Node.js','Python','MongoDB']</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-lg md:text-xl text-body dark:text-body-light leading-relaxed max-w-2xl">
+              We build end-to-end digital products — from ride-hailing platforms to
+              AI-powered agricultural tools. Real problems, production-grade solutions.
+            </p>
+
+            <!-- Quick stats -->
+            <div class="flex flex-wrap gap-6 pt-2">
+              <div class="flex items-center gap-2 text-Text-dark dark:text-Text-light">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse" style="animation-duration: 2s;"></div>
+                <span class="font-mono text-sm">5+ shipped products</span>
+              </div>
+              <div class="flex items-center gap-2 text-Text-dark dark:text-Text-light">
+                <div class="w-2 h-2 rounded-full bg-Cyan-accent dark:bg-Cyan-accent-dark"></div>
+                <span class="font-mono text-sm">SIH 2nd place — KisanMitra</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="item-revelar flex flex-wrap gap-4">
+            <a
+              href="/projects"
+              class="group inline-flex items-center gap-3 px-6 py-3 text-white bg-Orange-vibrant hover:bg-Orange-vibrant/90 dark:bg-Orange-vibrant-dark dark:hover:bg-Orange-vibrant-dark/90 rounded-lg transition-all font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <CodeIcon size={20} />
+              <span>View Projects</span>
+            </a>
+            <a
+              href="#contact"
+              class="group inline-flex items-center gap-3 px-6 py-3 text-Text-dark dark:text-Text-light bg-Background-light dark:bg-Background-dark border-2 border-Border dark:border-Border-dark hover:border-Cyan-accent dark:hover:border-Cyan-accent-dark rounded-lg transition-all font-medium hover:-translate-y-0.5"
+            >
+              <MessageIcon size={20} />
+              <span>Get in Touch</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Avatar / Brand Visual -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="item-revelar relative">
+            <!-- Code decorations -->
+            <div class="absolute -top-6 -left-6 text-Cyan-accent/40 dark:text-Cyan-accent-dark/40 font-mono text-sm select-none">{"<buva>"}</div>
+            <div class="absolute -bottom-6 -right-6 text-Cyan-accent/40 dark:text-Cyan-accent-dark/40 font-mono text-sm select-none">{"</buva>"}</div>
+
+            <!-- Border frame -->
+            <div class="absolute inset-0 border-2 border-Border dark:border-Border-dark rounded-2xl"></div>
+            <div class="absolute -inset-2 border border-Orange-vibrant/20 dark:border-Orange-vibrant-dark/20 rounded-2xl"></div>
+
+            <!-- Brand card instead of photo -->
+            <div class="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-Orange-vibrant/10 via-Background-light to-Cyan-accent/10 dark:from-Orange-vibrant-dark/20 dark:via-Forenground-dark dark:to-Cyan-accent-dark/20 border border-Border dark:border-Border-dark flex flex-col items-center justify-center gap-6 p-8">
+              <!-- Big B logo -->
+              <div class="w-24 h-24 rounded-2xl bg-Orange-vibrant dark:bg-Orange-vibrant-dark flex items-center justify-center shadow-2xl">
+                <span class="text-white font-black text-5xl">B</span>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-black text-Text-dark dark:text-white tracking-tight">
+                  BU<span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">VA</span>
+                </div>
+                <div class="text-sm text-body dark:text-body-light font-mono mt-1">build · unite · value · advance</div>
+              </div>
+              <!-- Decorative dots -->
+              <div class="flex gap-2">
+                <span class="w-2 h-2 rounded-full bg-Orange-vibrant dark:bg-Orange-vibrant-dark"></span>
+                <span class="w-2 h-2 rounded-full bg-Cyan-accent dark:bg-Cyan-accent-dark"></span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

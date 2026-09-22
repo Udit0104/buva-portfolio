@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#052e16;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gr" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg5)"/>
+  <!-- Soil -->
+  <rect x="0" y="320" width="800" height="130" fill="#1c0a00" opacity="0.8"/>
+  <!-- Crop stalks -->
+  <line x1="150" y1="320" x2="150" y2="160" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="150" cy="155" rx="25" ry="35" fill="#16a34a" opacity="0.9"/>
+  <line x1="250" y1="320" x2="250" y2="140" stroke="#15803d" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="250" cy="135" rx="22" ry="30" fill="#15803d" opacity="0.9"/>
+  <line x1="350" y1="320" x2="350" y2="155" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="350" cy="150" rx="28" ry="38" fill="#16a34a" opacity="0.9"/>
+  <line x1="450" y1="320" x2="450" y2="145" stroke="#14532d" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="450" cy="140" rx="24" ry="33" fill="#14532d" opacity="0.9"/>
+  <line x1="550" y1="320" x2="550" y2="160" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="550" cy="155" rx="26" ry="36" fill="#16a34a" opacity="0.9"/>
+  <line x1="650" y1="320" x2="650" y2="150" stroke="#15803d" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="650" cy="145" rx="22" ry="30" fill="#15803d" opacity="0.9"/>
+  <!-- ML graph overlay -->
+  <polyline points="100,280 180,240 260,210 340,190 420,165 500,145 580,125 680,105" stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <circle cx="100" cy="280" r="5" fill="#34d399"/>
+  <circle cx="260" cy="210" r="5" fill="#34d399"/>
+  <circle cx="420" cy="165" r="5" fill="#34d399"/>
+  <circle cx="580" cy="125" r="5" fill="#34d399"/>
+  <circle cx="680" cy="105" r="5" fill="#34d399"/>
+  <!-- AI badge -->
+  <rect x="590" y="200" width="150" height="80" rx="12" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" opacity="0.95"/>
+  <text x="665" y="228" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">ML Model</text>
+  <text x="665" y="248" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#34d399" text-anchor="middle">97.3%</text>
+  <text x="665" y="268" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Crop Yield Accuracy</text>
+  <!-- SIH badge -->
+  <rect x="60" y="60" width="150" height="80" rx="12" fill="#1e1b4b" stroke="#f59e0b" stroke-width="2" opacity="0.95"/>
+  <text x="135" y="90" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Smart India</text>
+  <text x="135" y="108" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#f59e0b" text-anchor="middle">Hackathon</text>
+  <text x="135" y="128" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="middle">🏆 2nd Place</text>
+  <!-- Title -->
+  <text x="400" y="390" font-family="system-ui, sans-serif" font-size="38" font-weight="800" fill="white" text-anchor="middle">KisanMitra</text>
+  <text x="400" y="418" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI Crop Yield &amp; Weather Prediction · SIH 2nd Place</text>
+</svg>

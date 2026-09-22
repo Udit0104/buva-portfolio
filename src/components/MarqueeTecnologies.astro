@@ -1,0 +1,51 @@
+---
+import IconsTecnology from "./IconsTecnology.astro";
+
+const technologies = [
+  "React",
+  "Nodejs",
+  "Typescript",
+  "Python",
+  "Mongodb",
+  "Postgresql",
+  "Docker",
+  "Git",
+  "Nextdotjs",
+  "Tailwindcss",
+  "Tensorflow",
+  "Firebase",
+  "Amazonaws",
+  "Javascript",
+  "Html5",
+];
+---
+
+<section
+  class="flex items-center relative h-16 bg-white text-Forenground-dark font-semibold dark:bg-Forenground-dark dark:text-Neutral-600-dark overflow-hidden"
+>
+  <div
+    class="flex animate-[scroll_35s_linear_infinite] hover:[animation-play-state:paused]"
+  >
+    <div class="flex items-center gap-8 px-4 shrink-0">
+      {
+        technologies.map((tech) => (
+          <div class="flex gap-2 items-center whitespace-nowrap">
+            <IconsTecnology name={tech} size={24} useOriginalColor={true} />
+            <span>{tech}</span>
+          </div>
+        ))
+      }
+    </div>
+    <!-- Duplicate for infinite scroll effect -->
+    <div class="flex items-center gap-8 px-4 shrink-0">
+      {
+        technologies.map((tech) => (
+          <div class="flex gap-2 items-center whitespace-nowrap">
+            <IconsTecnology name={tech} size={24} useOriginalColor={true} />
+            <span>{tech}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

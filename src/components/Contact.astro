@@ -1,0 +1,197 @@
+---
+import IconsTecnology from "./IconsTecnology.astro";
+import LinkedInIcon from "./LinkedInIcon.astro";
+
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+---
+
+<section id="contact">
+  <div class="container contenedor-revelar mx-auto px-4 py-20 text-center">
+    <h2 class="text-4xl font-bold mb-4 dark:text-white">Get in Touch</h2>
+    <p class="font-medium text-lg text-body dark:text-body-light mb-8">
+      Have a project in mind or just want to say hello? We'd love to hear from you.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+      <!-- Contact Form -->
+      <div class="item-revelar contact-form bg-neutral-primary-soft border border-Border dark:border-Border-dark rounded-base shadow-xs p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <svg class="w-8 h-8 text-Orange-vibrant dark:text-Orange-vibrant-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <h3 class="text-2xl font-bold text-Text-dark dark:text-Text-light text-left">Send a message</h3>
+        </div>
+
+        <form id="contact-form" class="space-y-6 text-left" method="POST">
+          <input type="hidden" name="access_key" value={ACCESS_KEY} />
+
+          <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-Text-dark dark:text-Text-light">Name</label>
+            <input
+              type="text" id="name" name="name"
+              class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light"
+              placeholder="Your name" required
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-Text-dark dark:text-Text-light">Email</label>
+            <input
+              type="email" id="email" name="email"
+              class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light"
+              placeholder="your.email@example.com" required
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-Text-dark dark:text-Text-light">Message</label>
+            <textarea
+              id="message" name="message" rows="5"
+              class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light resize-none"
+              placeholder="Tell us about your project..." required
+            ></textarea>
+          </div>
+
+          <div id="result" class="text-sm font-medium hidden"></div>
+
+          <button
+            type="submit" id="submit-btn"
+            class="px-8 py-4 font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center cursor-pointer justify-center gap-2 bg-Orange-vibrant dark:bg-Orange-vibrant-dark hover:bg-Orange-vibrant/90 text-white w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="btn-text">Send Message</span>
+            <span id="btn-loading" class="hidden">Sending...</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="item-revelar contact-info bg-neutral-primary-soft border border-Border dark:border-Border-dark rounded-base shadow-xs p-8 space-y-6 text-left">
+        <h3 class="text-2xl font-bold text-Text-dark dark:text-Text-light mb-4">Contact Information</h3>
+
+        <!-- Email -->
+        <div class="flex items-start gap-4 pb-4 border-b border-Border dark:border-Border-dark">
+          <div class="bg-Orange-vibrant/10 dark:bg-Orange-vibrant-dark/10 p-3 rounded-base shrink-0">
+            <svg class="w-6 h-6 text-Orange-vibrant dark:text-Orange-vibrant-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-Text-dark dark:text-Text-light mb-1">Email</h4>
+            <a href="mailto:hello@buva.dev" class="text-body text-sm dark:text-body-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">
+              hello@buva.dev
+            </a>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="flex items-start gap-4 pb-4 border-b border-Border dark:border-Border-dark">
+          <div class="bg-Orange-vibrant/10 dark:bg-Orange-vibrant-dark/10 p-3 rounded-base shrink-0">
+            <svg class="w-6 h-6 text-Orange-vibrant dark:text-Orange-vibrant-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-Text-dark dark:text-Text-light mb-1">Location</h4>
+            <p class="text-body text-sm dark:text-body-light">India 🇮🇳</p>
+          </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="flex items-start gap-4 pb-4 border-b border-Border dark:border-Border-dark">
+          <div class="bg-green-500/10 p-3 rounded-base shrink-0">
+            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-Text-dark dark:text-Text-light mb-1">Availability</h4>
+            <p class="text-body text-sm dark:text-body-light">
+              Open to new projects &amp; collaborations
+            </p>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="font-bold text-Text-dark dark:text-Text-light mb-3">Connect with us</h4>
+          <div class="flex gap-4">
+            <a
+              href="https://github.com/buva-dev"
+              target="_blank"
+              class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+              aria-label="GitHub"
+            >
+              <IconsTecnology name="Github" size={24} />
+            </a>
+            <a
+              href="https://linkedin.com/company/buva"
+              target="_blank"
+              class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon size={24} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script is:inline>
+    function initContactForm() {
+      const form = document.getElementById("contact-form");
+      const result = document.getElementById("result");
+      const submitBtn = document.getElementById("submit-btn");
+      const btnText = document.getElementById("btn-text");
+      const btnLoading = document.getElementById("btn-loading");
+
+      if (!form) return;
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        btnText.classList.add("hidden");
+        btnLoading.classList.remove("hidden");
+        result.classList.add("hidden");
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+          });
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            result.textContent = "✅ Message sent successfully!";
+            result.className = "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
+            result.classList.remove("hidden");
+            form.reset();
+          } else {
+            throw new Error(data.message || "Send error");
+          }
+        } catch (error) {
+          result.innerHTML = "❌ Something went wrong. Please try again.";
+          result.className = "text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-base";
+          result.classList.remove("hidden");
+        } finally {
+          submitBtn.disabled = false;
+          btnText.classList.remove("hidden");
+          btnLoading.classList.add("hidden");
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initContactForm);
+    } else {
+      initContactForm();
+    }
+
+    document.addEventListener("astro:after-swap", initContactForm);
+  </script>
+</section>

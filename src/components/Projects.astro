@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects
+  .filter((project) => project.data.featured)
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+  .slice(0, 3);
+---
+
+<section id="projects" class="projects flex flex-col justify-center py-20">
+  <div class="max-w-6xl md:px-4 px-6 mx-auto w-full">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4 dark:text-white">Latest Projects</h2>
+      <p class="font-medium text-lg text-body dark:text-body-light">
+        A selection of production-grade products we've built — from ride-hailing apps
+        to AI-powered agricultural tools. Click to explore the details.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 place-items-center md:grid-cols-2 xl:grid-cols-3">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            imageUrl={project.data.image}
+            projectUrl={project.data.projectUrl}
+            tecnologies={project.data.technologies}
+            icon={project.data.icon}
+            slug={project.id.replace(".md", "")}
+          />
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 px-6 py-3 text-white bg-Orange-vibrant hover:bg-Orange-vibrant/90 dark:bg-Orange-vibrant-dark dark:hover:bg-Orange-vibrant-dark/90 rounded-base transition-colors font-medium"
+      >
+        View all projects
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

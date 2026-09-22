@@ -1,0 +1,98 @@
+---
+import IconsTecnology from "./IconsTecnology.astro";
+import LinkedInIcon from "./LinkedInIcon.astro";
+---
+
+<footer class="relative bg-white dark:bg-black border-t border-Border dark:border-Border-dark">
+  <!-- Pattern Background -->
+  <div class="absolute inset-0 bg-[url('/pattern-code.png')] bg-repeat opacity-5 pointer-events-none"></div>
+
+  <div class="relative mx-auto font-medium w-full max-w-7xl px-4 py-8 lg:py-12">
+    <div class="md:flex md:justify-between">
+
+      <!-- Logo & description -->
+      <div class="mb-8 md:mb-0 md:w-1/3">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-Orange-vibrant dark:bg-Orange-vibrant-dark flex items-center justify-center">
+            <span class="text-white font-black text-sm">B</span>
+          </div>
+          <span class="text-xl font-black text-Text-dark dark:text-white tracking-tight">
+            BU<span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">VA</span>
+          </span>
+        </a>
+        <p class="text-body dark:text-body-light text-sm max-w-xs">
+          Build · Unite · Value · Advance.<br />
+          Full-stack products built for the real world.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="grid grid-cols-2 gap-8 sm:gap-12 sm:grid-cols-3">
+        <div>
+          <h2 class="mb-4 text-sm font-bold text-Text-dark dark:text-Text-light uppercase tracking-wider">Navigate</h2>
+          <ul class="text-body dark:text-body-light space-y-3">
+            <li><a href="/#hero" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">Home</a></li>
+            <li><a href="/#about" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">About</a></li>
+            <li><a href="/projects" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">Projects</a></li>
+            <li><a href="/#contact" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-sm font-bold text-Text-dark dark:text-Text-light uppercase tracking-wider">Projects</h2>
+          <ul class="text-body dark:text-body-light space-y-3">
+            <li><a href="/projects/rideon" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">RideOn</a></li>
+            <li><a href="/projects/hapscale" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">HapScale</a></li>
+            <li><a href="/projects/unifoodhub" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">UniFood Hub</a></li>
+            <li><a href="/projects/kisanmitra" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">KisanMitra</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-sm font-bold text-Text-dark dark:text-Text-light uppercase tracking-wider">Legal</h2>
+          <ul class="text-body dark:text-body-light space-y-3">
+            <li><a href="#" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-6 border-Border dark:border-Border-dark" />
+
+    <!-- Copyright & Social -->
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-body dark:text-body-light text-center sm:text-left block mb-4 sm:mb-0">
+        © {new Date().getFullYear()}
+        <span class="text-Orange-vibrant dark:text-Orange-vibrant-dark font-semibold">BUVA</span>.
+        All rights reserved.
+      </span>
+
+      <div class="flex justify-center sm:justify-end gap-4">
+        <a
+          href="https://github.com/buva-dev"
+          target="_blank"
+          class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+          aria-label="GitHub"
+        >
+          <IconsTecnology name="Github" size={24} />
+        </a>
+        <a
+          href="https://linkedin.com/company/buva"
+          target="_blank"
+          class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+          aria-label="LinkedIn"
+        >
+          <LinkedInIcon size={24} />
+        </a>
+        <a
+          href="mailto:hello@buva.dev"
+          class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+          aria-label="Email"
+        >
+          <IconsTecnology name="Gmail" size={24} />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

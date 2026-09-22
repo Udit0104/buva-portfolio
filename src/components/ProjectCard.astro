@@ -1,0 +1,213 @@
+---
+import { Image } from "astro:assets";
+import Badge from "./badge.astro";
+import IconsTecnology from "./IconsTecnology.astro";
+import CodeIcon from "./CodeIcon.astro";
+import MessageIcon from "./MessageIcon.astro";
+import HouseIcon from "./HouseIcon.astro";
+import UserIcon from "./UserIcon.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  imageUrl: ImageMetadata | string;
+  projectUrl: string;
+  tecnologies?: string[];
+  icon?: "code" | "message" | "house" | "user";
+  slug?: string;
+  disableModal?: boolean;
+}
+
+const {
+  title,
+  description,
+  imageUrl,
+  projectUrl,
+  tecnologies = [],
+  icon = "code",
+  slug,
+  disableModal = false,
+} = Astro.props;
+
+const modalId = `modal-${title.toLowerCase().replace(/\s+/g, "-")}`;
+
+const iconComponents = {
+  code: CodeIcon,
+  message: MessageIcon,
+  house: HouseIcon,
+  user: UserIcon,
+};
+
+const IconComponent = iconComponents[icon];
+---
+
+<div
+  class="item-revelar bg-neutral-primary-soft w-full border border-default rounded-base shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+>
+  {disableModal && slug ? (
+    <a href={`/projects/${slug}`} class="w-full h-48 overflow-hidden block shrink-0">
+      {typeof imageUrl === "string" ? (
+        <img class="rounded-t-base object-cover w-full h-full" src={imageUrl} alt={title} />
+      ) : (
+        <Image
+          src={imageUrl}
+          alt={title}
+          class="rounded-t-base object-cover w-full h-full"
+          widths={[400, 800]}
+          sizes="(max-width: 400px) 100vw, 400px"
+          loading="lazy"
+        />
+      )}
+    </a>
+  ) : (
+    <button
+      type="button"
+      data-modal-target={modalId}
+      data-modal-toggle={modalId}
+      class="w-full h-48 overflow-hidden block cursor-pointer shrink-0"
+    >
+      {typeof imageUrl === "string" ? (
+        <img class="rounded-t-base object-cover w-full h-full" src={imageUrl} alt={title} />
+      ) : (
+        <Image
+          src={imageUrl}
+          alt={title}
+          class="rounded-t-base object-cover w-full h-full"
+          widths={[400, 800]}
+          sizes="(max-width: 400px) 100vw, 400px"
+          loading="lazy"
+        />
+      )}
+    </button>
+  )}
+
+  <div class="p-6 flex flex-col grow">
+    {disableModal && slug ? (
+      <a href={`/projects/${slug}`} class="text-left">
+        <h3 class="mt-3 mb-6 text-2xl font-semibold tracking-tight text-heading hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors flex items-center gap-2">
+          <IconComponent size={28} class="text-Orange-vibrant dark:text-Orange-vibrant-dark" />
+          {title}
+        </h3>
+      </a>
+    ) : (
+      <button type="button" data-modal-target={modalId} data-modal-toggle={modalId} class="text-left">
+        <h3 class="mt-3 mb-6 text-2xl font-semibold tracking-tight text-heading hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors flex items-center gap-2">
+          <IconComponent size={28} class="text-Orange-vibrant dark:text-Orange-vibrant-dark" />
+          {title}
+        </h3>
+      </button>
+    )}
+
+    <p class="text-body font-body mb-4">{description}</p>
+
+    <div class="flex flex-wrap gap-2 mt-auto">
+      {tecnologies.map((tech) => <Badge label={tech} />)}
+    </div>
+
+    <div class="mt-4 flex gap-2 items-center justify-between">
+      <div class="flex gap-2">
+        <a
+          href={projectUrl}
+          target="_blank"
+          rel="noopener noreferrer me"
+          aria-label={`View project ${title}`}
+        >
+          <IconsTecnology
+            name="github"
+            class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark dark:text-gray-100 cursor-pointer"
+          />
+        </a>
+        <a
+          href={projectUrl}
+          target="_blank"
+          rel="noopener noreferrer me"
+          aria-label={`Open ${title}`}
+          class="text-black dark:text-white hover:text-Orange-vibrant"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3"></path>
+            <path d="M8 21h8"></path><path d="M12 17v4"></path>
+            <path d="m17 8 5-5"></path><path d="M17 3h5v5"></path>
+          </svg>
+        </a>
+      </div>
+      {slug && (
+        <a
+          href={`/projects/${slug}`}
+          class="text-sm font-medium text-Orange-vibrant dark:text-Orange-vibrant-dark hover:underline"
+        >
+          Read more →
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<!-- Modal (only when disableModal is false) -->
+{!disableModal && (
+  <div
+    id={modalId}
+    tabindex="-1"
+    aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+  >
+    <div class="relative p-4 w-full max-w-4xl max-h-full">
+      <div class="relative bg-Background-light dark:bg-Background-dark rounded-base shadow-lg border border-Border dark:border-Border-dark">
+        <div class="flex items-center justify-between p-4 md:p-5 border-b border-Border dark:border-Border-dark rounded-t-base">
+          <h3 class="text-2xl font-bold text-Text-dark dark:text-Text-light">{title}</h3>
+          <button
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-neutral-primary-soft hover:text-Text-dark dark:hover:text-Text-light rounded-base text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+            data-modal-hide={modalId}
+          >
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <div class="p-4 md:p-5 space-y-4">
+          <div class="w-full h-64 md:h-96 overflow-hidden rounded-base">
+            {typeof imageUrl === "string" ? (
+              <img class="w-full h-full object-cover" src={imageUrl} alt={title} />
+            ) : (
+              <Image
+                src={imageUrl}
+                alt={title}
+                class="w-full h-full object-cover"
+                widths={[600, 1200]}
+                sizes="(max-width: 768px) 100vw, 1200px"
+                loading="lazy"
+              />
+            )}
+          </div>
+          <p class="text-base leading-relaxed text-body dark:text-body-light">{description}</p>
+          <div>
+            <h4 class="font-semibold text-Text-dark dark:text-Text-light mb-2">Technologies Used:</h4>
+            <div class="flex flex-wrap gap-2">
+              {tecnologies.map((tech) => <Badge label={tech} />)}
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-3 p-4 md:p-5 border-t border-Border dark:border-Border-dark rounded-b-base">
+          <a
+            href={projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-Orange-vibrant hover:bg-Orange-vibrant/90 rounded-base transition-colors"
+          >
+            <IconsTecnology name="github" size={20} class="text-white" />
+            View on GitHub
+          </a>
+          <button
+            data-modal-hide={modalId}
+            type="button"
+            class="px-5 py-2.5 text-sm font-medium text-Text-dark dark:text-Text-light bg-neutral-primary-soft hover:bg-neutral-secondary-soft border border-Border dark:border-Border-dark rounded-base transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}

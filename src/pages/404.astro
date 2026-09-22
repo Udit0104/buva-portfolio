@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="404 — Page Not Found | BUVA">
+  <Header />
+  <main class="min-h-screen bg-Background-light dark:bg-Background-dark flex items-center justify-center px-6">
+    <div class="text-center max-w-lg">
+      <div class="font-mono text-9xl font-black text-Orange-vibrant dark:text-Orange-vibrant-dark mb-6 leading-none">
+        404
+      </div>
+      <h1 class="text-3xl font-bold text-Text-dark dark:text-white mb-4">Page not found</h1>
+      <p class="text-body dark:text-body-light mb-8 text-lg">
+        Looks like this route doesn't exist. Let's get you back on track.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 px-6 py-3 text-white bg-Orange-vibrant hover:bg-Orange-vibrant/90 dark:bg-Orange-vibrant-dark dark:hover:bg-Orange-vibrant-dark/90 rounded-lg transition-all font-medium shadow-lg hover:-translate-y-0.5"
+      >
+        ← Back to Home
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Layout>

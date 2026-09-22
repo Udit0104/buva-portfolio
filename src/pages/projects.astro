@@ -1,0 +1,193 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0),
+);
+
+const allTechnologies = [...new Set(projects.flatMap((p) => p.data.technologies))].sort();
+---
+
+<Layout
+  title="Projects | BUVA"
+  description="Explore all BUVA projects — production-grade apps, AI solutions and full-stack platforms."
+>
+  <Header />
+
+  <main class="min-h-screen bg-Background-light dark:bg-Background-dark relative overflow-hidden">
+    <!-- Atmospheric background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-Orange-vibrant/5 via-transparent to-Cyan-accent/5 dark:from-Orange-vibrant-dark/5 dark:to-Cyan-accent-dark/5 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-Cyan-accent/3 dark:bg-Cyan-accent-dark/3 blur-[120px] pointer-events-none"></div>
+
+    <section class="relative py-32 px-6 md:px-8">
+      <div class="max-w-7xl mx-auto w-full">
+
+        <!-- Hero Section -->
+        <div class="mb-20">
+          <div class="max-w-5xl">
+            <h1 class="text-7xl md:text-8xl xl:text-9xl font-bold mb-8 text-Text-dark dark:text-white leading-[0.9] tracking-tight">
+              Projects<span class="text-Orange-vibrant dark:text-Orange-vibrant-dark">.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-body dark:text-body-light max-w-2xl leading-relaxed font-light">
+              A collection of production products we've shipped.
+              <span class="text-Text-dark dark:text-Text-light font-medium">Filter, explore, build.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-sm font-mono uppercase tracking-wider text-body dark:text-body-light">Filter by</span>
+            <div class="h-px bg-Border dark:bg-Border-dark flex-1"></div>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <button
+              data-filter="all"
+              class="filter-btn active group relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-Orange-vibrant text-white dark:bg-Orange-vibrant-dark overflow-hidden"
+            >
+              <span class="relative z-10">All</span>
+              <span class="filter-count ml-2 relative z-10 opacity-75">{projects.length}</span>
+            </button>
+            {allTechnologies.map((tech) => {
+              const count = projects.filter((p) => p.data.technologies.includes(tech)).length;
+              return (
+                <button
+                  data-filter={tech}
+                  class="filter-btn group relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-neutral-primary-soft dark:bg-card-surface-dark text-Text-dark dark:text-Text-light hover:bg-Orange-vibrant hover:text-white dark:hover:bg-Orange-vibrant-dark border border-Border dark:border-Border-dark hover:border-Orange-vibrant dark:hover:border-Orange-vibrant-dark overflow-hidden"
+                >
+                  <span class="relative z-10">{tech}</span>
+                  <span class="filter-count ml-2 relative z-10 opacity-60 group-hover:opacity-100">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <!-- Counter -->
+        <div class="mb-8">
+          <p id="projects-counter" class="text-sm font-mono text-body dark:text-body-light">
+            <span class="text-Orange-vibrant dark:text-Orange-vibrant-dark font-bold" id="visible-count">{projects.length}</span>
+            <span class="mx-2">/</span>
+            <span>{projects.length} projects</span>
+          </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-auto">
+          {projects.map((project, index) => (
+            <div
+              class="project-item"
+              data-technologies={JSON.stringify(project.data.technologies)}
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                imageUrl={project.data.image}
+                projectUrl={project.data.projectUrl}
+                tecnologies={project.data.technologies}
+                icon={project.data.icon}
+                slug={project.id.replace(".md", "")}
+                disableModal={true}
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- No results -->
+        <div id="no-results" class="hidden text-center py-32">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-neutral-primary-soft dark:bg-card-surface-dark border border-Border dark:border-Border-dark mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-body dark:text-body-light" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+          </div>
+          <p class="text-2xl font-bold text-Text-dark dark:text-white mb-2">No results</p>
+          <p class="text-body dark:text-body-light">No projects found with that technology</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+    const noResults = document.getElementById('no-results');
+    const visibleCountEl = document.getElementById('visible-count');
+    const projectsGrid = document.getElementById('projects-grid');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-Orange-vibrant', 'text-white', 'dark:bg-Orange-vibrant-dark');
+          btn.classList.add('bg-neutral-primary-soft', 'dark:bg-card-surface-dark', 'text-Text-dark', 'dark:text-Text-light');
+        });
+        button.classList.add('active', 'bg-Orange-vibrant', 'text-white', 'dark:bg-Orange-vibrant-dark');
+        button.classList.remove('bg-neutral-primary-soft', 'dark:bg-card-surface-dark', 'text-Text-dark', 'dark:text-Text-light');
+
+        projectsGrid?.classList.add('filtering');
+        let visibleCount = 0;
+        let delay = 0;
+
+        projectItems.forEach((item) => {
+          const technologies = JSON.parse(item.getAttribute('data-technologies') || '[]');
+          const shouldShow = filter === 'all' || technologies.includes(filter);
+          (item as HTMLElement).style.animation = 'none';
+
+          setTimeout(() => {
+            if (shouldShow) {
+              (item as HTMLElement).style.display = 'block';
+              (item as HTMLElement).style.animation = `fadeInUp 0.5s ease-out ${delay}s both`;
+              visibleCount++;
+              delay += 0.05;
+            } else {
+              (item as HTMLElement).style.display = 'none';
+            }
+          }, 10);
+        });
+
+        setTimeout(() => {
+          if (visibleCountEl) visibleCountEl.textContent = visibleCount.toString();
+          projectsGrid?.classList.remove('filtering');
+        }, 100);
+
+        setTimeout(() => {
+          if (visibleCount === 0) noResults?.classList.remove('hidden');
+          else noResults?.classList.add('hidden');
+        }, 200);
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initializeFilters);
+</script>
+
+<style>
+  .filter-btn { position: relative; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .filter-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+  .filter-btn:active { transform: translateY(0); }
+
+  .project-item { animation: fadeInUp 0.6s ease-out both; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.4s; }
+</style>
