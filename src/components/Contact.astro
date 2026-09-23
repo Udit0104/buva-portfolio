@@ -7,7 +7,7 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
 <section id="contact">
   <div class="container contenedor-revelar mx-auto px-4 py-20 text-center">
-    <h2 class="text-4xl font-bold mb-4 dark:text-white">Get in Touch</h2>
+    <h2 class="text-4xl font-bold mb-4 text-Text-dark dark:text-white">Get in Touch</h2>
     <p class="font-medium text-lg text-body dark:text-body-light mb-8">
       Have a project in mind or just want to say hello? We'd love to hear from you.
     </p>
@@ -23,8 +23,8 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
           <h3 class="text-2xl font-bold text-Text-dark dark:text-Text-light text-left">Send a message</h3>
         </div>
 
-        <form id="contact-form" class="space-y-6 text-left" method="POST">
-          <input type="hidden" name="access_key" value={ACCESS_KEY} />
+        <form id="contact-form" class="space-y-6 text-left" action="https://formsubmit.co/badalsh908@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
 
           <div>
             <label for="name" class="block mb-2 text-sm font-medium text-Text-dark dark:text-Text-light">Name</label>
@@ -78,8 +78,8 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
           </div>
           <div>
             <h4 class="font-bold text-Text-dark dark:text-Text-light mb-1">Email</h4>
-            <a href="mailto:hello@buva.dev" class="text-body text-sm dark:text-body-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">
-              hello@buva.dev
+            <a href="mailto:badalsh908@gmail.com" class="text-body text-sm dark:text-body-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors">
+              badalsh908@gmail.com
             </a>
           </div>
         </div>
@@ -150,6 +150,15 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
       if (!form) return;
 
+      if (result) {
+        result.addEventListener("click", function (e) {
+          const closeBtn = e.target.closest(".close-btn");
+          if (closeBtn) {
+            result.classList.add("hidden");
+          }
+        });
+      }
+
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         submitBtn.disabled = true;
@@ -157,26 +166,63 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
         btnLoading.classList.remove("hidden");
         result.classList.add("hidden");
 
-        const formData = new FormData(form);
+        const nameInput = form.querySelector("#name");
+        const emailInput = form.querySelector("#email");
+        const messageInput = form.querySelector("#message");
+
+        const name = nameInput ? nameInput.value : "";
+        const email = emailInput ? emailInput.value : "";
+        const message = messageInput ? messageInput.value : "";
 
         try {
-          const response = await fetch("https://api.web3forms.com/submit", {
+          const response = await fetch("https://formsubmit.co/ajax/badalsh908@gmail.com", {
             method: "POST",
-            body: formData,
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              message: message,
+              _subject: `New Portfolio Message from ${name}`
+            })
           });
+
           const data = await response.json();
 
-          if (response.ok && data.success) {
-            result.textContent = "✅ Message sent successfully!";
-            result.className = "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
+          if (response.ok && (data.success === "true" || data.success === true)) {
+            result.innerHTML = `
+              <div class="flex items-center justify-between gap-2 w-full">
+                <span>✅ Message sent successfully!</span>
+                <button type="button" class="close-btn p-1 rounded-md text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-800/30 transition-colors shrink-0 cursor-pointer" aria-label="Close message">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            `;
+            result.className = "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base flex items-center justify-between";
             result.classList.remove("hidden");
             form.reset();
           } else {
             throw new Error(data.message || "Send error");
           }
         } catch (error) {
-          result.innerHTML = "❌ Something went wrong. Please try again.";
-          result.className = "text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-base";
+          const mailtoUrl = `mailto:badalsh908@gmail.com?subject=${encodeURIComponent("Portfolio Message from " + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+          window.location.href = mailtoUrl;
+
+          result.innerHTML = `
+            <div class="flex items-center justify-between gap-2 w-full">
+              <span>✅ Opening mail client to send message to badalsh908@gmail.com...</span>
+              <button type="button" class="close-btn p-1 rounded-md text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800/30 transition-colors shrink-0 cursor-pointer" aria-label="Close message">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+          `;
+          result.className = "text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-base flex items-center justify-between";
           result.classList.remove("hidden");
         } finally {
           submitBtn.disabled = false;
