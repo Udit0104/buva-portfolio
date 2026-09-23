@@ -45,7 +45,7 @@ const IconComponent = iconComponents[icon];
   class="item-revelar bg-neutral-primary-soft w-full border border-default rounded-base shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
 >
   {disableModal && slug ? (
-    <a href={`/projects/${slug}`} class="w-full h-48 overflow-hidden block shrink-0">
+    <a href={`/projects/${slug}`} class="w-full aspect-video overflow-hidden block shrink-0">
       {typeof imageUrl === "string" ? (
         <img class="rounded-t-base object-cover w-full h-full" src={imageUrl} alt={title} />
       ) : (
@@ -64,7 +64,7 @@ const IconComponent = iconComponents[icon];
       type="button"
       data-modal-target={modalId}
       data-modal-toggle={modalId}
-      class="w-full h-48 overflow-hidden block cursor-pointer shrink-0"
+      class="w-full aspect-video overflow-hidden block cursor-pointer shrink-0"
     >
       {typeof imageUrl === "string" ? (
         <img class="rounded-t-base object-cover w-full h-full" src={imageUrl} alt={title} />

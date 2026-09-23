@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgIaehi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="happyBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgIaehi)"/>
+
+  <!-- Subtle grid -->
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+  <line x1="200" y1="0" x2="200" y2="450" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+  <line x1="400" y1="0" x2="400" y2="450" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+  <line x1="600" y1="0" x2="600" y2="450" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+
+  <!-- ── Quiz card (left) ── -->
+  <rect x="50" y="55" width="210" height="290" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Card header -->
+  <rect x="50" y="55" width="210" height="40" rx="14" fill="#1c1209"/>
+  <rect x="50" y="83" width="210" height="12" rx="0" fill="#1c1209"/>
+  <text x="155" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">Employee Happiness Quiz</text>
+
+  <!-- Question block -->
+  <rect x="62" y="106" width="186" height="54" rx="8" fill="#1e293b"/>
+  <text x="72" y="121" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#94a3b8">Q3 of 10</text>
+  <rect x="62" y="126" width="140" height="4" rx="2" fill="#374151"/>
+  <rect x="62" y="126" width="56" height="4" rx="2" fill="#f59e0b" opacity="0.7"/>
+  <text x="72" y="149" font-family="system-ui, sans-serif" font-size="8" fill="#e2e8f0">How valued do you feel at work?</text>
+
+  <!-- Answer options -->
+  <rect x="62" y="168" width="186" height="22" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="74" y="183" font-family="system-ui, sans-serif" font-size="8" fill="#4ade80">😊  Very valued</text>
+  <rect x="62" y="196" width="186" height="22" rx="6" fill="#1e293b"/>
+  <text x="74" y="211" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">🙂  Somewhat valued</text>
+  <rect x="62" y="220" width="186" height="22" rx="6" fill="#1e293b"/>
+  <text x="74" y="235" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">😐  Neutral</text>
+  <rect x="62" y="244" width="186" height="22" rx="6" fill="#1e293b"/>
+  <text x="74" y="259" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">😔  Not valued</text>
+
+  <!-- Next button -->
+  <rect x="62" y="277" width="186" height="24" rx="12" fill="#f59e0b"/>
+  <text x="155" y="293" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Next Question →</text>
+
+  <!-- Label -->
+  <text x="155" y="368" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">Quiz Interface</text>
+
+  <!-- ── Happiness Index result (center) ── -->
+  <rect x="306" y="55" width="188" height="290" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="306" y="55" width="188" height="40" rx="14" fill="#052e16"/>
+  <rect x="306" y="83" width="188" height="12" rx="0" fill="#052e16"/>
+  <text x="400" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#4ade80" text-anchor="middle">Happiness Index</text>
+
+  <!-- Score dial -->
+  <circle cx="400" cy="160" r="52" fill="none" stroke="#1e293b" stroke-width="10"/>
+  <circle cx="400" cy="160" r="52" fill="none" stroke="url(#happyBar)" stroke-width="10"
+    stroke-dasharray="245 327" stroke-dashoffset="82" stroke-linecap="round"/>
+  <text x="400" y="153" font-family="system-ui, sans-serif" font-size="26" font-weight="800" fill="white" text-anchor="middle">78</text>
+  <text x="400" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">/ 100</text>
+  <text x="400" y="186" font-family="system-ui, sans-serif" font-size="9" fill="#4ade80" text-anchor="middle">Happy</text>
+
+  <!-- Category bars -->
+  <text x="318" y="228" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Work-Life</text>
+  <rect x="318" y="232" width="164" height="5" rx="2" fill="#1e293b"/>
+  <rect x="318" y="232" width="124" height="5" rx="2" fill="#10b981" opacity="0.7"/>
+
+  <text x="318" y="248" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Recognition</text>
+  <rect x="318" y="252" width="164" height="5" rx="2" fill="#1e293b"/>
+  <rect x="318" y="252" width="100" height="5" rx="2" fill="#f59e0b" opacity="0.7"/>
+
+  <text x="318" y="268" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Growth</text>
+  <rect x="318" y="272" width="164" height="5" rx="2" fill="#1e293b"/>
+  <rect x="318" y="272" width="140" height="5" rx="2" fill="#10b981" opacity="0.7"/>
+
+  <text x="318" y="288" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Team Culture</text>
+  <rect x="318" y="292" width="164" height="5" rx="2" fill="#1e293b"/>
+  <rect x="318" y="292" width="80" height="5" rx="2" fill="#f87171" opacity="0.6"/>
+
+  <!-- 1000+ badge -->
+  <rect x="318" y="308" width="164" height="25" rx="8" fill="#1e293b"/>
+  <text x="400" y="325" font-family="system-ui, sans-serif" font-size="9" fill="#fbbf24" text-anchor="middle">📊 Analysed 1,000+ employees</text>
+
+  <text x="400" y="368" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#4ade80" text-anchor="middle">Index Score</text>
+
+  <!-- ── Tech stack panel (right) ── -->
+  <rect x="544" y="55" width="206" height="290" rx="14" fill="#0f172a" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="544" y="55" width="206" height="40" rx="14" fill="#1e1b4b"/>
+  <rect x="544" y="83" width="206" height="12" rx="0" fill="#1e1b4b"/>
+  <text x="647" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#a5b4fc" text-anchor="middle">Stack &amp; Auth</text>
+
+  <!-- Node.js -->
+  <rect x="556" y="106" width="182" height="40" rx="8" fill="#1e293b"/>
+  <text x="570" y="122" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#4ade80">⬡  Node.js + Express</text>
+  <text x="570" y="137" font-family="system-ui, sans-serif" font-size="8" fill="#6b7280">REST API · Quiz engine · Score algo</text>
+
+  <!-- MongoDB -->
+  <rect x="556" y="153" width="182" height="40" rx="8" fill="#1e293b"/>
+  <text x="570" y="169" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#4ade80">🍃  MongoDB</text>
+  <text x="570" y="184" font-family="system-ui, sans-serif" font-size="8" fill="#6b7280">Scalable storage · Past assessments</text>
+
+  <!-- bcrypt auth -->
+  <rect x="556" y="200" width="182" height="40" rx="8" fill="#1e293b"/>
+  <text x="570" y="216" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#f59e0b">🔐  bcrypt Auth</text>
+  <text x="570" y="231" font-family="system-ui, sans-serif" font-size="8" fill="#6b7280">Secure login · Password hashing</text>
+
+  <!-- Deployment -->
+  <rect x="556" y="247" width="182" height="40" rx="8" fill="#1e293b"/>
+  <text x="570" y="263" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#60a5fa">🚀  Deployed</text>
+  <text x="570" y="278" font-family="system-ui, sans-serif" font-size="8" fill="#6b7280">iaehi.in · Live production</text>
+
+  <!-- Algorithm badge -->
+  <rect x="556" y="295" width="182" height="36" rx="8" fill="#1c0d2e"/>
+  <text x="647" y="311" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#c084fc" text-anchor="middle">Custom Happiness Algorithm</text>
+  <text x="647" y="325" font-family="system-ui, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Research-backed · Personalized scores</text>
+
+  <text x="647" y="368" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#a5b4fc" text-anchor="middle">Tech Stack</text>
+
+  <!-- Title -->
+  <text x="400" y="406" font-family="system-ui, sans-serif" font-size="36" font-weight="800" fill="white" text-anchor="middle">iaehi.in</text>
+  <text x="400" y="432" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Employee Happiness Index · Quiz · Node.js · MongoDB</text>
+</svg>

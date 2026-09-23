@@ -1,34 +1,122 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
   <defs>
-    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0a2e;stop-opacity:1" />
+    <linearGradient id="bgPost" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0a1e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
     </linearGradient>
+    <linearGradient id="shopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e0c2e;stop-opacity:1" />
+    </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#bg4)"/>
-  <!-- Poster canvas mockup -->
-  <rect x="180" y="60" width="200" height="280" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
-  <rect x="190" y="70" width="180" height="120" rx="4" fill="#312e81" opacity="0.7"/>
-  <rect x="195" y="200" width="80" height="10" rx="5" fill="#818cf8" opacity="0.8"/>
-  <rect x="195" y="218" width="120" height="8" rx="4" fill="#6366f1" opacity="0.5"/>
-  <rect x="195" y="234" width="100" height="8" rx="4" fill="#6366f1" opacity="0.4"/>
-  <rect x="195" y="250" width="140" height="8" rx="4" fill="#6366f1" opacity="0.3"/>
-  <rect x="195" y="290" width="60" height="22" rx="11" fill="#6366f1"/>
-  <text x="225" y="305" font-family="system-ui, sans-serif" font-size="10" fill="white" text-anchor="middle">BUY NOW</text>
-  <!-- Second poster -->
-  <rect x="420" y="80" width="200" height="280" rx="8" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
-  <rect x="430" y="90" width="180" height="120" rx="4" fill="#4c1d95" opacity="0.7"/>
-  <rect x="435" y="220" width="90" height="10" rx="5" fill="#a78bfa" opacity="0.8"/>
-  <rect x="435" y="238" width="130" height="8" rx="4" fill="#8b5cf6" opacity="0.5"/>
-  <rect x="435" y="254" width="110" height="8" rx="4" fill="#8b5cf6" opacity="0.4"/>
-  <rect x="435" y="310" width="60" height="22" rx="11" fill="#8b5cf6"/>
-  <text x="465" y="325" font-family="system-ui, sans-serif" font-size="10" fill="white" text-anchor="middle">EXPLORE</text>
-  <!-- SEO badge -->
-  <rect x="320" y="160" width="80" height="80" rx="40" fill="#6366f1" opacity="0.15" stroke="#6366f1" stroke-width="2"/>
-  <text x="360" y="192" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#818cf8" text-anchor="middle">SEO</text>
-  <text x="360" y="207" font-family="system-ui, sans-serif" font-size="11" fill="#818cf8" text-anchor="middle">Ready</text>
-  <text x="360" y="222" font-family="system-ui, sans-serif" font-size="16" fill="#34d399" text-anchor="middle">✓</text>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgPost)"/>
+
+  <!-- Subtle grid -->
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#6366f1" stroke-width="0.3" opacity="0.12"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#6366f1" stroke-width="0.3" opacity="0.12"/>
+  <line x1="200" y1="0" x2="200" y2="450" stroke="#6366f1" stroke-width="0.3" opacity="0.12"/>
+  <line x1="400" y1="0" x2="400" y2="450" stroke="#6366f1" stroke-width="0.3" opacity="0.12"/>
+  <line x1="600" y1="0" x2="600" y2="450" stroke="#6366f1" stroke-width="0.3" opacity="0.12"/>
+
+  <!-- Product cards (left) -->
+  <!-- Card 1 -->
+  <rect x="60" y="70" width="130" height="175" rx="10" fill="url(#shopGrad)" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="68" y="78" width="114" height="100" rx="6" fill="#312e81" opacity="0.8"/>
+  <!-- Poster preview art -->
+  <rect x="78" y="88" width="94" height="80" rx="4" fill="#1e1b4b"/>
+  <rect x="85" y="95" width="80" height="66" rx="3" fill="#0f0e2a"/>
+  <line x1="85" y1="128" x2="165" y2="128" stroke="#818cf8" stroke-width="0.5" opacity="0.4"/>
+  <rect x="92" y="102" width="56" height="6" rx="3" fill="#818cf8" opacity="0.5"/>
+  <rect x="96" y="114" width="48" height="4" rx="2" fill="#6366f1" opacity="0.4"/>
+  <rect x="100" y="134" width="40" height="4" rx="2" fill="#6366f1" opacity="0.3"/>
+  <rect x="88" y="144" width="64" height="12" rx="6" fill="#6366f1" opacity="0.6"/>
+  <!-- Card label -->
+  <rect x="68" y="185" width="70" height="5" rx="2" fill="#a5b4fc" opacity="0.7"/>
+  <rect x="68" y="196" width="45" height="5" rx="2" fill="#818cf8" opacity="0.5"/>
+  <text x="167" y="202" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#a5b4fc" text-anchor="end">₹499</text>
+  <!-- Add to cart -->
+  <rect x="68" y="210" width="114" height="22" rx="11" fill="#6366f1"/>
+  <text x="125" y="225" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">Add to Cart</text>
+
+  <!-- Card 2 -->
+  <rect x="205" y="70" width="130" height="175" rx="10" fill="url(#shopGrad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="213" y="78" width="114" height="100" rx="6" fill="#4c1d95" opacity="0.7"/>
+  <rect x="220" y="85" width="100" height="86" rx="4" fill="#1e0e3e"/>
+  <rect x="228" y="93" width="84" height="70" rx="3" fill="#150b2e"/>
+  <rect x="236" y="100" width="68" height="5" rx="2" fill="#c4b5fd" opacity="0.5"/>
+  <rect x="236" y="112" width="52" height="4" rx="2" fill="#8b5cf6" opacity="0.4"/>
+  <rect x="236" y="122" width="60" height="4" rx="2" fill="#8b5cf6" opacity="0.3"/>
+  <rect x="236" y="134" width="44" height="4" rx="2" fill="#8b5cf6" opacity="0.3"/>
+  <rect x="236" y="146" width="68" height="10" rx="5" fill="#7c3aed" opacity="0.6"/>
+  <rect x="213" y="185" width="65" height="5" rx="2" fill="#c4b5fd" opacity="0.7"/>
+  <rect x="213" y="196" width="42" height="5" rx="2" fill="#a78bfa" opacity="0.5"/>
+  <text x="312" y="202" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#c4b5fd" text-anchor="end">₹899</text>
+  <rect x="213" y="210" width="114" height="22" rx="11" fill="#7c3aed"/>
+  <text x="270" y="225" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">Add to Cart</text>
+
+  <!-- Shopify + Hydrogen badge (center) -->
+  <rect x="340" y="75" width="120" height="46" rx="10" fill="#0f172a" stroke="#96bf48" stroke-width="1.5"/>
+  <text x="400" y="97" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#96bf48" text-anchor="middle">🛍 Shopify</text>
+  <text x="400" y="113" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Storefront + Admin API</text>
+
+  <rect x="340" y="132" width="120" height="46" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="400" y="153" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">⚛ Hydrogen</text>
+  <text x="400" y="168" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">React · Vercel · SSR</text>
+
+  <!-- Custom upload mockup -->
+  <rect x="340" y="192" width="120" height="60" rx="10" fill="#0f172a" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="400" y="216" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">🖼</text>
+  <text x="400" y="232" font-family="system-ui, sans-serif" font-size="9" fill="#818cf8" text-anchor="middle">Upload your image</text>
+  <text x="400" y="244" font-family="system-ui, sans-serif" font-size="8" fill="#475569" text-anchor="middle">Custom print-on-demand</text>
+
+  <!-- Order management panel (right) -->
+  <rect x="495" y="60" width="245" height="295" rx="12" fill="#0f172a" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="495" y="60" width="245" height="38" rx="12" fill="#1e1b4b"/>
+  <rect x="495" y="86" width="245" height="12" rx="0" fill="#1e1b4b"/>
+  <text x="617" y="84" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#a5b4fc" text-anchor="middle">Order Management</text>
+
+  <!-- Orders -->
+  <rect x="507" y="108" width="221" height="48" rx="6" fill="#1e293b"/>
+  <rect x="507" y="108" width="4" height="48" rx="2" fill="#f59e0b"/>
+  <text x="520" y="124" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#fbbf24">#1042 · Nordic Frost Print</text>
+  <rect x="517" y="129" width="90" height="4" rx="2" fill="#4b5563"/>
+  <rect x="517" y="137" width="60" height="4" rx="2" fill="#4b5563"/>
+  <rect x="670" y="124" width="46" height="18" rx="9" fill="#f59e0b" opacity="0.15"/>
+  <text x="693" y="136" font-family="system-ui, sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">Processing</text>
+
+  <rect x="507" y="163" width="221" height="48" rx="6" fill="#1e293b"/>
+  <rect x="507" y="163" width="4" height="48" rx="2" fill="#22c55e"/>
+  <text x="520" y="179" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#4ade80">#1039 · Monstera Wall Art</text>
+  <rect x="517" y="184" width="80" height="4" rx="2" fill="#4b5563"/>
+  <rect x="517" y="192" width="55" height="4" rx="2" fill="#4b5563"/>
+  <rect x="670" y="179" width="46" height="18" rx="9" fill="#22c55e" opacity="0.15"/>
+  <text x="693" y="191" font-family="system-ui, sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">Shipped</text>
+
+  <rect x="507" y="218" width="221" height="48" rx="6" fill="#1e293b"/>
+  <rect x="507" y="218" width="4" height="48" rx="2" fill="#60a5fa"/>
+  <text x="520" y="234" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#93c5fd">#1035 · Custom Upload · A3</text>
+  <rect x="517" y="239" width="75" height="4" rx="2" fill="#4b5563"/>
+  <rect x="517" y="247" width="50" height="4" rx="2" fill="#4b5563"/>
+  <rect x="670" y="234" width="46" height="18" rx="9" fill="#60a5fa" opacity="0.15"/>
+  <text x="693" y="246" font-family="system-ui, sans-serif" font-size="8" fill="#93c5fd" text-anchor="middle">Delivered</text>
+
+  <!-- Stats row -->
+  <rect x="507" y="277" width="221" height="65" rx="8" fill="#1c1917"/>
+  <rect x="515" y="286" width="55" height="46" rx="6" fill="#1e293b"/>
+  <text x="542" y="304" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Orders</text>
+  <text x="542" y="320" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#a5b4fc" text-anchor="middle">248</text>
+
+  <rect x="578" y="286" width="55" height="46" rx="6" fill="#1e293b"/>
+  <text x="605" y="304" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Revenue</text>
+  <text x="605" y="320" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#4ade80" text-anchor="middle">₹1.2L</text>
+
+  <rect x="641" y="286" width="55" height="46" rx="6" fill="#1e293b"/>
+  <text x="668" y="304" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Custom</text>
+  <text x="668" y="320" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f472b6" text-anchor="middle">63%</text>
+
   <!-- Title -->
   <text x="400" y="400" font-family="system-ui, sans-serif" font-size="38" font-weight="800" fill="white" text-anchor="middle">Posteroid</text>
-  <text x="400" y="428" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Full Website · SEO Optimised · Built from Scratch</text>
+  <text x="400" y="428" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">E-Commerce · Custom Prints · Shopify Hydrogen</text>
 </svg>
