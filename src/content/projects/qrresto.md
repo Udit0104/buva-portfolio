@@ -2,7 +2,7 @@
 title: "QrResto — Digital Restaurant Ordering"
 description: "A QR-based restaurant ordering system where customers scan a table QR code, browse the menu, and place orders directly from their phone. Restaurant staff manage incoming orders in real time through a dedicated dashboard, powered by Firebase and Firestore."
 image: "../../assets/images/qrresto.svg"
-projectUrl: "https://github.com/buva-dev/qrresto"
+projectUrl: "https://qrresto.com"
 technologies: ["JavaScript", "HTML", "Firebase", "Firestore", "Firebase Authentication", "QR Code"]
 icon: "house"
 featured: true
