@@ -2,7 +2,7 @@
 title: "KisanMitra — AI Crop & Weather Predictor"
 description: "KisanMitra is an AI-powered agricultural assistant that predicts crop yield and weather conditions for Indian farmers. Trained custom ML models using satellite imagery and soil data. Won 2nd place at Smart India Hackathon (SIH)."
 image: "../../assets/images/kisanmitra.svg"
-projectUrl: "https://github.com/buva-dev/kisanmitra"
+projectUrl: "https://sih-frontend-virid.vercel.app/"
 technologies: ["Python", "TensorFlow", "Scikit-learn", "React", "FastAPI", "PostgreSQL", "Pandas"]
 icon: "user"
 featured: true
