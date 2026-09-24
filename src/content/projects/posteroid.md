@@ -2,7 +2,7 @@
 title: "Posteroid — Custom Poster E-Commerce"
 description: "A full-stack e-commerce platform for selling custom posters and framed prints, with product collections, custom image uploads, order management, and a modern shopping experience."
 image: "../../assets/images/posteroid.svg"
-projectUrl: "https://github.com/buva-dev/posteroid"
+projectUrl: "https://posteroid.in"
 technologies: ["Shopify", "Hydrogen", "React", "JavaScript", "Storefront API", "Admin API", "Vercel"]
 icon: "code"
 featured: true
