@@ -2,7 +2,7 @@
 title: "OwnYourLandmark — Real Estate Platform"
 description: "A real estate platform designed to simplify property discovery and management, allowing users to explore properties, view detailed listings, and manage property-related information through a streamlined digital experience."
 image: "../../assets/images/ownyourlandmark.svg"
-projectUrl: "https://github.com/buva-dev/ownyourlandmark"
+projectUrl: "https://ownyourlandmark.com"
 technologies: ["TypeScript", "JavaScript", "CSS", "Firebase", "Google Maps API", "REST APIs"]
 icon: "house"
 featured: true
