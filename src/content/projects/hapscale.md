@@ -2,7 +2,7 @@
 title: "HapScale — Business Growth Platform"
 description: "A full-featured business intelligence and growth platform built for an ex-Wipro director. HapScale combines a dynamic React front-end with a Node.js engine to deliver real-time analytics, lead management, and automated reporting at enterprise scale."
 image: "../../assets/images/hapscale.svg"
-projectUrl: "https://github.com/buva-dev/hapscale"
+projectUrl: "https://hapscale.com"
 technologies: ["React", "Node.js", "PostgreSQL", "Docker", "Chart.js", "REST API", "TypeScript"]
 icon: "house"
 featured: true
